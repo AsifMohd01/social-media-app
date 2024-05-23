@@ -41,10 +41,10 @@ const Navbar = () => {
   const primaryLight = theme.palette.primary.light;
   const alt = theme.palette.background.alt;
 
-  // const fullName = user ? `${user.firstName} ${user.lastName}` : "";
+  const fullName = user ? `${user.firstName} ${user.lastName}` : "";
 
   // const fullName = `${user?.firstname} ${user?.lastName}`;
-  const fullName = `${user.firstName} ${user.lastName}`;
+  // const fullName = `${user.firstName} ${user.lastName}`;
   // const fullName = `${user.fullName}`;
   // const fullName = `${user?.firstname || ""} ${user?.lastName || ""}`;
 
@@ -63,7 +63,7 @@ const Navbar = () => {
             },
           }}
         >
-          Sociopedia
+          SocialSnap
         </Typography>
         {isNonMobileScreens && (
           <FlexBetween

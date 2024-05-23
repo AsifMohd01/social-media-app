@@ -1,3 +1,4 @@
+import React from "react";
 import Form from "./Form";
 import { Box, Typography, useTheme, useMediaQuery } from "@mui/material";
 const loginPage = () => {
@@ -12,7 +13,7 @@ const loginPage = () => {
         textAlign="center"
       >
         <Typography fontWeight="bold" fontSize="32px" color="primary">
-          Sociopedia
+          SocialSnap
         </Typography>
       </Box>
       <Box
@@ -23,7 +24,7 @@ const loginPage = () => {
         backgroundColor={theme.palette.background.alt}
       >
         <Typography fontWeight="500" variant="h5" sx={{ mb: "1.5rem" }}>
-          Welcome to Sociopedia, the Social Media for Sociopaths!
+          Welcome to SocialSnap, the Social Media for Sociopaths!
         </Typography>
         <Form />
       </Box>
