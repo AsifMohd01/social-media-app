@@ -1,3 +1,5 @@
+import pro from './assets/pro.jpg'
+
 export const userData = [
   {
     id:1,
@@ -70,4 +72,41 @@ export const userData = [
  
 ];
 
-
+export const getPosts = [
+    {
+        userId:1,
+        firstName: "Asif",
+        lastName: "choudhary",
+        location: "Bangalore",
+        occupation: "student",
+      description: "This is a description for post 1",
+      picturePath: pro,
+      userPicturePath: { pro },
+      likes: 10,
+      comments: ["Great post!", "Awesome!"],
+    },
+    {
+        userId:2,
+        firstName: "Adam",
+        lastName: "Robinson",
+        location: "Mangalore",
+        occupation: "teacher",
+      description: "This is a description for post 1",
+      picturePath: pro,
+      userPicturePath: pro,
+      likes: 11,
+      comments: ["Great post!", "Awesome!"],
+    },
+    {
+        userId:3,
+    firstName: "Midoriya",
+    lastName: "MHA",
+    location: "japan",
+    occupation: "student",
+      description: "This is a description for post 1",
+      picturePath: pro,
+      userPicturePath: pro,
+      likes: 11,
+      comments: ["Great post!", "Awesome!"],
+    },
+  ];

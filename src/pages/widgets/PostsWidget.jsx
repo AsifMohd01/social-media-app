@@ -3,6 +3,7 @@ import { useDispatch, useSelector } from "react-redux";
 import { setPosts } from "../../state/index.js";
 import PostWidget from "./PostWidget.jsx";
 import pro from "../../assets/pro.jpg";
+import { getPosts } from "../../data.js";
 
 const PostsWidget = ({ userId, isProfile = false }) => {
   const dispatch = useDispatch();
@@ -46,32 +47,7 @@ const PostsWidget = ({ userId, isProfile = false }) => {
   //   }
   // }, [isProfile, userId, token, dispatch]); // eslint-disable-line react-hooks/exhaustive-deps
 
-  const getPosts = [
-    {
-      _id: "1",
-      userId: "user1",
-      firstName: "John",
-      lastName: "Doe",
-      description: "This is a description for post 1",
-      location: "New York",
-      picturePath: "../../assests/luke-miller-wZ-9d29Fweo-unsplash.jpg",
-      userPicturePath: { pro },
-      likes: 10,
-      comments: ["Great post!", "Awesome!"],
-    },
-    {
-      _id: "2",
-      userId: "user2",
-      firstName: "John",
-      lastName: "Doe",
-      description: "This is a description for post 1",
-      location: "New York",
-      picturePath: pro,
-      userPicturePath: pro,
-      likes: 11,
-      comments: ["Great post!", "Awesome!"],
-    },
-  ];
+  
 
   useEffect(() => {
     dispatch(setPosts({ posts: getPosts }));
