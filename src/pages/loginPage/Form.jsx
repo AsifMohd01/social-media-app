@@ -133,7 +133,7 @@ const Form = () => {
         setFieldValue,
         resetForm,
       }) => (
-        <form onSubmit={handleSubmit}>
+        <form onSubmit={()=>{navigate('/home')}}>
           <Box
             display="grid"
             gap="30px"
