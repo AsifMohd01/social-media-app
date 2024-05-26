@@ -14,6 +14,7 @@ import { useNavigate } from "react-router-dom";
 import linkedin from "../../assets/linkedin.png";
 import twitter from "../../assets/twitter.png";
 import Instagram from "../../assets/InstagramIcon.jpg";
+import { userData } from "../../data";
 
 const UserWidget = ({ userId, picturePath }) => {
   const [user, setUser] = useState(null);
@@ -61,20 +62,12 @@ const UserWidget = ({ userId, picturePath }) => {
   //   return null;
   // }
 
+  
+
   useEffect(() => {
-    const getUser = {
-      firstName: "mahir",
-      lastName: "choudhary",
-      location: "Bangalore",
-      occupation: "srudent",
-      viewedProfile: 123,
-      impressions: 456,
-      friends: [
-        { id: 1, name: " ahan ch" },
-        { id: 2, name: " Akram ch" },
-      ],
-    };
-    setUser(getUser);
+    const user = userData.filter(u => u.id === 1);
+    console.log(user);
+    setUser(user[0]);
   }, []);
   if (!user) {
     return null;

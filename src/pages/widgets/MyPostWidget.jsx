@@ -55,6 +55,7 @@ const MyPostWidget = ({ picturePath }) => {
     setImage(null);
     setPost("");
   };
+  
   return (
     <WidgetWrapper>
       <FlexBetween gap="1.5rem">
