@@ -9,6 +9,7 @@ import { CssBaseline, ThemeProvider } from "@mui/material";
 import { createTheme } from "@mui/material/styles";
 import { themeSettings } from "./theme";
 import "./App.css";
+import Reel from "./pages/Reels/Reel.jsx";
 
 function App() {
   const mode = useSelector((state) => state.mode);
@@ -30,8 +31,9 @@ function App() {
               <Route
                 path="/profile/:userId"
                 // element={isAuth ? <ProfilePage /> : <Navigate to="/" />}
-                element={ <ProfilePage /> }
+                element={<ProfilePage />}
               />
+              <Route path="/reels" element={<Reel />} />
             </Routes>
           </ThemeProvider>
         </BrowserRouter>

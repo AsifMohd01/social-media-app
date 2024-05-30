@@ -62,10 +62,8 @@ const UserWidget = ({ userId, picturePath }) => {
   //   return null;
   // }
 
-  
-
   useEffect(() => {
-    const user = userData.filter(u => u.id === 1);
+    const user = userData.filter((u) => u.id === 1);
     console.log(user);
     setUser(user[0]);
   }, []);

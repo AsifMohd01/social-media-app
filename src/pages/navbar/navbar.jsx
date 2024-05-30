@@ -24,8 +24,12 @@ import {
 } from "@mui/icons-material";
 import { useDispatch, useSelector } from "react-redux";
 import { setMode, setLogout } from "../../state/index.js";
-import { useNavigate } from "react-router-dom";
+import { Navigate, useNavigate } from "react-router-dom";
 import FlexBetween from "../../components/FlexBetween.jsx";
+import { PiVideoFill } from "react-icons/pi";
+import { BiMoviePlay } from "react-icons/bi";
+import Reels from "../Reels/Reel.jsx";
+import { AiFillHome } from "react-icons/ai";
 
 const Navbar = () => {
   const [isMobileMenuToggled, setIsMobileMenuToggled] = useState(false);
@@ -47,6 +51,11 @@ const Navbar = () => {
   // const fullName = `${user.firstName} ${user.lastName}`;
   // const fullName = `${user.fullName}`;
   // const fullName = `${user?.firstname || ""} ${user?.lastName || ""}`;
+
+  //To navigate reels section
+  const handleNavigateToReels = () => {
+    navigate("/reels");
+  };
 
   return (
     <FlexBetween padding="1rem 6%" backgroundColor={alt}>
@@ -90,6 +99,19 @@ const Navbar = () => {
               <LightMode sx={{ color: dark, fontSize: "25px" }} />
             )}
           </IconButton>
+
+          <AiFillHome
+            sx={{ fontSize: "25px" }}
+            fontSize="25px"
+            onClick={() => navigate("/home")}
+          />
+
+          <BiMoviePlay
+            sx={{ fontSize: "25px" }}
+            fontSize="25px"
+            onClick={handleNavigateToReels}
+          />
+
           <Message sx={{ fontSize: "25px" }} />
           <Notifications sx={{ fontSize: "25px" }} />
           <Help sx={{ fontSize: "25px" }} />
@@ -114,7 +136,8 @@ const Navbar = () => {
               <MenuItem value={fullName}>
                 <Typography>{fullName}</Typography>
               </MenuItem>
-              <MenuItem onClick={() => dispatch(setLogout())}>Log Out</MenuItem>
+              {/* <MenuItem onClick={() => dispatch(setLogout())}>Log Out</MenuItem>  commented due to backend is not connected */}
+              <MenuItem onClick={() => navigate("/")}>Log Out</MenuItem>
             </Select>
           </FormControl>
         </FlexBetween>
@@ -165,6 +188,17 @@ const Navbar = () => {
                 <LightMode sx={{ color: dark, fontSize: "25px" }} />
               )}
             </IconButton>
+
+            <AiFillHome
+              sx={{ fontSize: "25px" }}
+              fontSize="25px"
+              onClick={() => navigate("/home")}
+            />
+            <BiMoviePlay
+              sx={{ fontSize: "25px" }}
+              fontSize="25px"
+              onClick={handleNavigateToReels}
+            />
             <Message sx={{ fontSize: "25px" }} />
             <Notifications sx={{ fontSize: "25px" }} />
             <Help sx={{ fontSize: "25px" }} />
@@ -190,7 +224,8 @@ const Navbar = () => {
                   <Typography>{fullName}</Typography>
                 </MenuItem>
                 <MenuItem onClick={() => dispatch(setLogout())}>
-                  Log Out
+                  <div onClick={() => navigate("/")}> Log Out </div>
+                  {/* <button onClick={() => navigate("/")}>Log Out</button> */}
                 </MenuItem>
               </Select>
             </FormControl>

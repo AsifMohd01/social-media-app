@@ -47,7 +47,44 @@ const PostsWidget = ({ userId, isProfile = false }) => {
   //   }
   // }, [isProfile, userId, token, dispatch]); // eslint-disable-line react-hooks/exhaustive-deps
 
-  
+  const getPosts = [
+    {
+      _id: "1",
+      userId: "user1",
+      firstName: "Rahul",
+      lastName: "Sharma",
+      description: "this is a description for post 1",
+      location: "New york",
+      picturePath: pro,
+      userPicturePath: pro,
+      likes: 15,
+      comments: ["Great post", "Awesome"],
+    },
+    {
+      _id: "2",
+      userId: "user2",
+      firstName: "Rohan",
+      lastName: "Sharma",
+      description: "this is a description for post 2",
+      location: "New york",
+      picturePath: pro,
+      userPicturePath: pro,
+      likes: 11,
+      comments: ["Great post", "Awesome"],
+    },
+    {
+      _id: "3",
+      userId: "user3",
+      firstName: "Rehan",
+      lastName: "Ch",
+      description: "this is a description for post 3",
+      location: "New york",
+      picturePath: pro,
+      userPicturePath: pro,
+      likes: 15,
+      comments: ["Great post", "Awesome"],
+    },
+  ];
 
   useEffect(() => {
     dispatch(setPosts({ posts: getPosts }));
