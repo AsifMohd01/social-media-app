@@ -7,37 +7,37 @@ import FlexBetween from "./FlexBetween";
 import UserImage from "./UserImage";
 
 //hardcode user data
-const hardcodedUser = {
-  _id: "123",
-  friends: [
-    {
-      _id: "1",
-      firstName: "John",
-      lastName: "Doe",
-      occupation: "Software Engineer",
-      picturePath: "path/to/image1.jpg",
-    },
-    {
-      _id: "2",
-      firstName: "Jane",
-      lastName: "Smith",
-      occupation: "Graphic Designer",
-      picturePath: "path/to/image2.jpg",
-    },
-  ],
-};
+// const hardcodedUser = {
+//   _id: "123",
+//   friends: [
+//     {
+//       _id: "1",
+//       firstName: "John",
+//       lastName: "Doe",
+//       occupation: "Software Engineer",
+//       picturePath: "path/to/image1.jpg",
+//     },
+//     {
+//       _id: "2",
+//       firstName: "Jane",
+//       lastName: "Smith",
+//       occupation: "Graphic Designer",
+//       picturePath: "path/to/image2.jpg",
+//     },
+//   ],
+// };
 
 const Friend = ({ friendId, name, subtitle, userPicturePath }) => {
   const dispatch = useDispatch();
   const navigate = useNavigate();
-  // const { _id } = useSelector((state) => state.user);
+  const { _id } = useSelector((state) => state.user);
   //hardcode user data ,commented due to hardcode data
-  // const user = useSelector((state) => state.user);
-  const user = hardcodedUser;
-  const _id = user ? user._id : null;
+  const user = useSelector((state) => state.user);
+  // const user = hardcodedUser;
+  // const _id = user ? user._id : null;
   const token = useSelector((state) => state.token);
-  // const friends = useSelector((state) => state.user.friends);
-  const friends = user ? user.friends : [];
+  const friends = useSelector((state) => state.user.friends);
+  // const friends = user ? user.friends : [];
 
   const { palette } = useTheme();
   const primaryLight = palette.primary.light;
@@ -48,44 +48,44 @@ const Friend = ({ friendId, name, subtitle, userPicturePath }) => {
   const isFriend = friends.find((friend) => friend._id === friendId);
 
   // Hardcoded user data
-  const patchFriend = () => {
-    if (!_id) return;
+  // const patchFriend = () => {
+  //   if (!_id) return;
 
     // Simulate patching friend by updating local state
-    let updatedFriends;
-    if (isFriend) {
-      updatedFriends = friends.filter((friend) => friend._id !== friendId);
-    } else {
-      updatedFriends = [
-        ...friends,
-        {
-          _id: friendId,
-          firstName: name.split(" ")[0],
-          lastName: name.split(" ")[1],
-          occupation: subtitle,
-          picturePath: userPicturePath,
-        },
-      ];
-    }
-    dispatch(setFriends({ friends: updatedFriends }));
-  };
+  //   let updatedFriends;
+  //   if (isFriend) {
+  //     updatedFriends = friends.filter((friend) => friend._id !== friendId);
+  //   } else {
+  //     updatedFriends = [
+  //       ...friends,
+  //       {
+  //         _id: friendId,
+  //         firstName: name.split(" ")[0],
+  //         lastName: name.split(" ")[1],
+  //         occupation: subtitle,
+  //         picturePath: userPicturePath,
+  //       },
+  //     ];
+  //   }
+  //   dispatch(setFriends({ friends: updatedFriends }));
+  // };
 
   //commented due to hardcode data
-  // const patchFriend = async () => {
-  //   if (!_id) return; //prevent patch request if _id is  null
-  //   const response = await fetch(
-  //     `http://localhost:3001/users/${_id}/${friendId}`,
-  //     {
-  //       method: "PATCH",
-  //       headers: {
-  //         Authorization: `Bearer ${token}`,
-  //         "Content-Type": "application/json",
-  //       },
-  //     }
-  //   );
-  //   const data = await response.json();
-  //   dispatch(setFriends({ friends: data }));
-  // };
+  const patchFriend = async () => {
+    if (!_id) return; //prevent patch request if _id is  null
+    const response = await fetch(
+      `http://localhost:6001/users/${_id}/${friendId}`,
+      {
+        method: "PATCH",
+        headers: {
+          Authorization: `Bearer ${token}`,
+          "Content-Type": "application/json",
+        },
+      }
+    );
+    const data = await response.json();
+    dispatch(setFriends({ friends: data }));
+  };
 
   return (
     <FlexBetween>

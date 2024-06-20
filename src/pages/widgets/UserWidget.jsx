@@ -25,61 +25,61 @@ const UserWidget = ({ userId, picturePath }) => {
   const medium = palette.neutral.medium;
   const main = palette.neutral.main;
 
-  //   const getUser = async () => {
-  //     const response = await fetch(`http://localhost:3001/users/${userId}`, {
-  //       method: "GET",
-  //       headers: { Authorization: `Bearer ${token}` },
-  //     });
-  //     const data = await response.json();
-  //     setUser(data);
-  //   };
+    // const getUser = async () => {
+    //   const response = await fetch(`http://localhost:6001/users/${userId}`, {
+    //     method: "GET",
+    //     headers: { Authorization: `Bearer ${token}` },
+    //   });
+    //   const data = await response.json();
+    //   setUser(data);
+    // };
   //commented code to initialize here to fectch data from backend
 
-  //   const getUser = async () => {
-  //   try {
-  //     const response = await fetch(`http://localhost:3001/users/${userId}`, {
-  //       method: "GET",
-  //       headers: { Authorization: `Bearer ${token}` },
-  //     });
+    const getUser = async () => {
+    try {
+      const response = await fetch(`http://localhost:6001/users/${userId}`, {
+        method: "GET",
+        headers: { Authorization: `Bearer ${token}` },
+      });
 
-  //     if (!response.ok) {
-  //       throw new Error("Failed to fetch user data");
-  //     }
+      if (!response.ok) {
+        throw new Error("Failed to fetch user data");
+      }
 
-  //     const data = await response.json();
-  //     setUser(data);
-  //   } catch (error) {
-  //     console.error("Error fetching user data:", error.message);
-  //     // Handle the error here, such as displaying a message to the user or retrying
-  //   }
-  // };
-
-  // useEffect(() => {
-  //   getUser();
-  // }, []); // eslint-disable-line react-hooks/exhaustive-deps
-
-  // if (!user) {
-  //   return null;
-  // }
+      const data = await response.json();
+      setUser(data);
+    } catch (error) {
+      console.error("Error fetching user data:", error.message);
+      // Handle the error here, such as displaying a message to the user or retrying
+    }
+  };
 
   useEffect(() => {
-    const user = userData.filter((u) => u.id === 1);
-    console.log(user);
-    setUser(user[0]);
-  }, []);
+    getUser();
+  }, []); // eslint-disable-line react-hooks/exhaustive-deps
+
   if (!user) {
     return null;
   }
 
-  const {
-    firstName,
-    lastName,
-    location,
-    occupation,
-    viewedProfile,
-    impressions,
-    friends,
-  } = user;
+  // useEffect(() => {
+  //   const user = userData.filter((u) => u.id === 1);
+  //   console.log(user);
+  //   setUser(user[0]);
+  // }, []);
+  // if (!user) {
+  //   return null;
+  // }
+
+  // const {
+  //   firstName,
+  //   lastName,
+  //   location,
+  //   occupation,
+  //   viewedProfile,
+  //   impressions,
+  //   friends,
+  // } = user;
 
   return (
     <WidgetWrapper>

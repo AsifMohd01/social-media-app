@@ -2,27 +2,41 @@ import { Box, Typography, useTheme } from "@mui/material";
 import FlexBetween from "../../components/FlexBetween.jsx";
 import WidgetWrapper from "../../components/WidgetWrapper.jsx";
 
+//code to fetch notifications from backend
+useEffect(() => {
+  const fetchNotifications = async () => {
+    try {
+      const response = await axios.get("http://localhost:6001/api/notifications"); // Replace with your backend API URL
+      setNotifications(response.data);
+    } catch (error) {
+      console.error("Error fetching notifications data:", error);
+    }
+  };
+
+  fetchNotifications();
+}, []);
+
 // Hardcoded notifications data
-const notifications = [
-  {
-    id: "1",
-    user: "John Doe",
-    action: "liked your post",
-    time: "2 hours ago",
-  },
-  {
-    id: "2",
-    user: "Jane Smith",
-    action: "commented on your photo",
-    time: "3 hours ago",
-  },
-  {
-    id: "3",
-    user: "Alice Johnson",
-    action: "started following you",
-    time: "1 day ago",
-  },
-];
+// const notifications = [
+//   {
+//     id: "1",
+//     user: "John Doe",
+//     action: "liked your post",
+//     time: "2 hours ago",
+//   },
+//   {
+//     id: "2",
+//     user: "Jane Smith",
+//     action: "commented on your photo",
+//     time: "3 hours ago",
+//   },
+//   {
+//     id: "3",
+//     user: "Alice Johnson",
+//     action: "started following you",
+//     time: "1 day ago",
+//   },
+// ];
 
 const NotificationWidget = () => {
   const { palette } = useTheme();

@@ -4,7 +4,7 @@ import App from "./App.jsx";
 import authReducer from "./state/index.js";
 import { configureStore } from "@reduxjs/toolkit";
 import { Provider } from "react-redux";
-// import { getDefaultMiddleware } from "@reduxjs/toolkit";
+import { getDefaultMiddleware } from "@reduxjs/toolkit";
 import {
   persistStore,
   persistReducer,

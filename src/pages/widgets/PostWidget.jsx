@@ -38,7 +38,7 @@ const PostWidget = ({
 
   const patchLike = async () => {
     if (!loggedInUserId) return; //Prevent patch request if loggedInUserId is null
-    const response = await fetch(`http://localhost:3001/posts/${postId}/like`, {
+    const response = await fetch(`http://localhost:6001/posts/${postId}/like`, {
       method: "PATCH",
       headers: {
         Authorization: `Bearer ${token}`,
@@ -67,8 +67,8 @@ const PostWidget = ({
           height="auto"
           alt="post"
           style={{ borderRadius: "0.75rem", marginTop: "0.75rem" }}
-          // src={`http://localhost:3001/assets/${picturePath}`}
-          src={post}
+          src={`http://localhost:3001/assets/${picturePath}`}
+          // src={post}
         />
       )}
       <FlexBetween mt="0.25rem">

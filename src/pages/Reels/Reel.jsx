@@ -17,25 +17,19 @@ import videoReel from "../../assets/videoReel.mp4";
 import videoReel1 from "../../assets/videoReel1.mp4";
 import Navbar from "../navbar/navbar.jsx";
 
-// Hardcoded reel data
-const reels = [
-  {
-    id: "1",
-    username: "john_doe",
-    description: "Beautiful sunset at the beach",
-    videoPath: "path/to/video1.mp4",
-    likes: 120,
-    comments: 45,
-  },
-  {
-    id: "2",
-    username: "jane_smith",
-    description: "Hiking adventures in the mountains",
-    videoPath: "path/to/video2.mp4",
-    likes: 200,
-    comments: 60,
-  },
-];
+// code to fetch data from backend
+useEffect(() => {
+  const fetchReels = async () => {
+    try {
+      const response = await axios.get("http://localhost:6001/api/reels"); // Replace with your backend API URL
+      setReels(response.data);
+    } catch (error) {
+      console.error("Error fetching reels data:", error);
+    }
+  };
+
+  fetchReels();
+}, []);
 
 const Reels = () => {
   const { palette } = useTheme();
